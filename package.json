@@ -1,16 +1,33 @@
 {
   "name": "vue-easy-carousel",
   "version": "1.0.0",
+  "private": false,
   "description": "A responsive and easy slideshow/carousel for Vue.js",
-  "main": ".dist/index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vue serve src/Carousel.vue",
+    "build": "bili --name index --plugin vue --vue.css false"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsenaweb/vue-easy-carousel.git"
   },
   "keywords": [
     "carousel",
+    "carroussel",
+    "slideshow",
+    "slide",
     "vue",
-    "slideshow"
+    "vue.js"
   ],
   "author": "Matheus Ricelly <fsenaweb@gmail.com>",
-  "license": "MIT"
+  "homepage": "https://fsenaweb.me",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup-plugin-vue": "^5.1.6",
+    "vue-template-compiler": "^2.6.11"
+  }
 }
