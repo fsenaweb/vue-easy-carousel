@@ -1,0 +1,16 @@
+{
+  "name": "vue-easy-carousel",
+  "version": "1.0.0",
+  "description": "A responsive and easy slideshow/carousel for Vue.js",
+  "main": ".dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "carousel",
+    "vue",
+    "slideshow"
+  ],
+  "author": "Matheus Ricelly <fsenaweb@gmail.com>",
+  "license": "MIT"
+}
