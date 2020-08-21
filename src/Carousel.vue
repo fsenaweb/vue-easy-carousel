@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="slides-container">
 
       <div v-for="(image, index) in myImages" ref="slides" class="slides fade" :key="index">
         <img :src="image.image" :alt="image.text"/>
@@ -13,7 +13,8 @@
     </div>
 
     <div v-if="showDots" class="dots">
-      <span v-for="(_, index) in myImages" ref="dot" class="dot" :key="index" @click.prevent="currentSlide(index+ 1)"></span>
+      <span v-for="(_, index) in myImages" ref="dot" class="dot" :key="index"
+            @click.prevent="currentSlide(index+ 1)"></span>
     </div>
 
   </div>
@@ -29,13 +30,13 @@ export default {
   },
   props: {
     myImages: {
-    type: Array,
-    required: true,
-    default: () => [],
-  },
+      type: Array,
+      required: true,
+      default: () => [],
+    },
     showText: {
       type: Boolean,
-      default: true
+      default: false
     },
     showDots: {
       type: Boolean,
@@ -59,7 +60,7 @@ export default {
         slides[i].style.display = "none";
       }
       slides[this.slideIndex - 1].style.display = "block";
-      if(this.showDots) {
+      if (this.showDots) {
         let dots = this.$refs.dot;
         for (i = 0; i < dots.length; i++) {
           dots[i].className = dots[i].className.replace(" active", "");
@@ -82,7 +83,7 @@ export default {
   box-sizing: border-box
 }
 
-.container {
+.slides-container {
   width: 100%;
   position: relative;
   margin: auto;
