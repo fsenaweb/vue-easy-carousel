@@ -14,24 +14,30 @@ yarn add vue-easy-carousel
 
 ##### Usage
 
-In your .vue component, inside the `<script>` tag, import the package.
+In the **`main.js`** file, import the package and install the component globally.
 
-`import VueEasyCarousel from 'vue-easy-carousel';`
+```
+import VueEasyCarousel from 'vue-easy-carousel'
+
+Vue.use(VueEasyCarousel)
+```
+
+After the global configuration, anywhere within your project, you can insert the component:
 
 ```html
-<vue-easy-carousel :my-images="" :show-text="" :show-dots="" />
+<vue-easy-carousel :my-images="" show-text show-dots />
 ```
 
 **Pay attention to the description of the component parameters so that it works correctly. However, there is a rule for the insertion of images, as we inform below:**
 
 | Parameter          | Type               | Default value |
 |--------------------|--------------------|---------------|
-| my-images          | Array<object>      | {}            |
-| show-text          | Boolean            | true          |
+| my-images          | Array<object>      | [ ]            |
+| show-text          | Boolean            | false          |
 | show-dots          | Boolean            | false         |
 
 ###### show-text: 
-_This parameter tells you if you want to have an informative text at the bottom of each slide. By default, it is set to true._
+_This parameter tells you if you want to have an informative text at the bottom of each slide. By default, it is set to false._
 
 ###### show-dots: 
 _This parameter displays points below the slides indicating which index it is at. By default, it is set to false._
@@ -39,16 +45,26 @@ _This parameter displays points below the slides indicating which index it is at
 ###### my-images: 
 _This parameter receives an array of objects containing the image and text keys. It is important that the keys contain these names so that the component can recognize and render the images in the browser. Below is an example of the structure:_
 
-```json
+```
 {
-  "image": "url",
-  "text": "text of image",
+  image: 'url',
+  text: 'description text of image'
 }
 ```
 
-##### Example
+##### Examples
 ```html
-<vue-easy-carousel :my-images="array" :show-text="false" :show-dots="true" />
+<!-- Show all attributes in component --> 
+<vue-easy-carousel :my-images="array" show-text show-dots />
+
+<!-- Show only descriptions text attributes in component -->
+<vue-easy-carousel :my-images="array" show-text />
+
+<!-- Show only the dots how the attribute in component -->
+<vue-easy-carousel :my-images="array" show-dots />
+
+<!-- Show only the images slide -->
+<vue-easy-carousel :my-images="array" />
 ```
 
 ## Next steps
