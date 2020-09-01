@@ -1,7 +1,5 @@
-import Carousel from "./Carousel.vue";
+import VueEasyCarousel from './plugin'
 
-export default {
-  install(Vue, options) {
-    Vue.component("vue-easy-carousel", Carousel);
-  }
-};
+export default VueEasyCarousel
+
+export { default as VueEasyCarousel } from './Carousel.vue'

@@ -35,12 +35,16 @@ After the global configuration, anywhere within your project, you can insert the
 | my-images          | Array<object>      | [ ]            |
 | show-text          | Boolean            | false          |
 | show-dots          | Boolean            | false         |
+| time-slide         | Number             |                 |
 
 ###### show-text: 
 _This parameter tells you if you want to have an informative text at the bottom of each slide. By default, it is set to false._
 
 ###### show-dots: 
 _This parameter displays points below the slides indicating which index it is at. By default, it is set to false._
+
+###### time-slide: 
+_This parameter sets the Carrousel's automatic rotation, determined by the time in milliseconds (ex: 3000). If you don't want it to be automatic, just omit it._
 
 ###### my-images: 
 _This parameter receives an array of objects containing the image and text keys. It is important that the keys contain these names so that the component can recognize and render the images in the browser. Below is an example of the structure:_
