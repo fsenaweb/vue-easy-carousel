@@ -31,7 +31,7 @@ export default {
   props: {
     myImages: {
       type: Array,
-      required: true,
+      required: false, //true
       default: () => [],
     },
     showText: {
@@ -41,10 +41,18 @@ export default {
     showDots: {
       type: Boolean,
       default: false
+    },
+    timeSlide: {
+      type: Number,
     }
   },
   mounted() {
     this.showSlides(this.slideIndex)
+    if(this.timeSlide > 0){
+      setInterval(() => {
+        this.showSlides(this.slideIndex += 1)
+      }, this.timeSlide)
+    }
   },
   methods: {
     showSlides(x) {
