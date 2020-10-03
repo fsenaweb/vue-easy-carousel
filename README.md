@@ -34,8 +34,10 @@ After the global configuration, anywhere within your project, you can insert the
 |--------------------|--------------------|---------------|
 | my-images          | Array<object>      | [ ]            |
 | show-text          | Boolean            | false          |
-| show-dots          | Boolean            | false         |
-| time-slide         | Number             |                 |
+| show-arrows        | Boolean            | true           |
+| show-dots          | Boolean            | false          |
+| animation          | String             | null           |
+| time-slide         | Number             |                |
 
 ###### show-text: 
 _This parameter tells you if you want to have an informative text at the bottom of each slide. By default, it is set to false._
@@ -43,8 +45,14 @@ _This parameter tells you if you want to have an informative text at the bottom 
 ###### show-dots: 
 _This parameter displays points below the slides indicating which index it is at. By default, it is set to false._
 
+###### show-arrows: 
+_This parameter displays Arrows side the slides indicating which index it is at. By default, it is set to true._
+
 ###### time-slide: 
 _This parameter sets the Carrousel's automatic rotation, determined by the time in milliseconds (ex: 3000). If you don't want it to be automatic, just omit it._
+
+###### animation: 
+_This parameter will receive the value of a slide transition effect. At the moment only the FADE effect is available (we are accepting new effects as a contribution). By default, it is given a null value, so it has no effect on your transition from one slide to another._
 
 ###### my-images: 
 _This parameter receives an array of objects containing the image and text keys. It is important that the keys contain these names so that the component can recognize and render the images in the browser. Below is an example of the structure:_
@@ -59,7 +67,7 @@ _This parameter receives an array of objects containing the image and text keys.
 ##### Examples
 ```html
 <!-- Show all attributes in component --> 
-<vue-easy-carousel :my-images="array" show-text show-dots />
+<vue-easy-carousel :my-images="array" show-text show-dots :show-arrows="false" time-slide="5000" animation="fade" />
 
 <!-- Show only descriptions text attributes in component -->
 <vue-easy-carousel :my-images="array" show-text />

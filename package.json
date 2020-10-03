@@ -1,12 +1,13 @@
 {
   "name": "vue-easy-carousel",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": false,
   "description": "A responsive and easy slideshow/carousel for Vue.js",
   "main": "./dist/index.js",
   "scripts": {
     "dev": "vue serve src/Carousel.vue",
-    "build": "bili --name index --plugin vue --vue.css false"
+    "build": "npx bili --name index --plugin vue --vue.css false",
+    "build:develop": "npx bili --bundle-node-modules"
   },
   "files": [
     "dist/*"
