@@ -2,13 +2,19 @@
   <div>
     <div class="slides-container">
 
-      <div v-for="(image, index) in myImages" ref="slides" class="slides fade" :key="index">
+      <div
+          v-for="(image, index) in myImages"
+          ref="slides"
+          class="slides"
+          :class="animation"
+          :key="index"
+      >
         <img :src="image.image" :alt="image.text"/>
         <div v-if="showText" class="text">{{ image.text }}</div>
       </div>
 
-      <a class="prev" @click.prevent="nextSlide(-1)">&#10094;</a>
-      <a class="next" @click.prevent="nextSlide(1)">&#10095;</a>
+      <a v-if="showArrows" class="prev" @click.prevent="nextSlide(-1)">&#10094;</a>
+      <a v-if="showArrows" class="next" @click.prevent="nextSlide(1)">&#10095;</a>
 
     </div>
 
@@ -42,8 +48,16 @@ export default {
       type: Boolean,
       default: false
     },
+    showArrows: {
+      type: Boolean,
+      default: true
+    },
     timeSlide: {
       type: Number,
+    },
+    animation: {
+      type: String,
+      default: null
     }
   },
   mounted() {
