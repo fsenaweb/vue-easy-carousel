@@ -1,6 +1,6 @@
 {
   "name": "vue-easy-carousel",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": false,
   "description": "A responsive and easy slideshow/carousel for Vue.js",
   "main": "./dist/index.js",
