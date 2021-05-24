@@ -1,6 +1,6 @@
 {
   "name": "vue-easy-carousel",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "A responsive and easy slideshow/carousel for Vue.js",
   "main": "./dist/index.js",
@@ -30,7 +30,7 @@
   "homepage": "https://fsenaweb.me",
   "license": "MIT",
   "devDependencies": {
-    "rollup-plugin-vue": "^5.1.6",
+    "rollup-plugin-vue": "^6.0.0",
     "vue-template-compiler": "^2.6.11"
   }
 }
