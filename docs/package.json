@@ -1,0 +1,19 @@
+{
+  "name": "vue-easy-carousel",
+  "version": "0.0.1",
+  "description": "A responsive and easy slideshow/carousel for Vue.js",
+  "main": "index.js",
+  "authors": {
+    "name": "Matheus Ricelly",
+    "email": "fsenaweb@gmail.com"
+  },
+  "repository": "https://github.com/fsenaweb/vue-easy-carousel/vue-easy-carousel",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
