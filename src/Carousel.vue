@@ -4,12 +4,14 @@
 
       <div
           v-for="(image, index) in myImages"
-          ref="slides"
+          v-show="slideIndex === index + 1"
           class="slides"
           :class="animation"
           :key="index"
       >
-        <img :src="image.image" :alt="image.text"/>
+        <component :is="image.link ? 'a' : 'span'" :href="image.link" :target="image.link ? '_blank' : null" :style="image.link ? '' : 'cursor: default'">
+          <img :src="image.image" :alt="image.text"/>
+        </component>
         <div v-if="showText" class="text">{{ image.text }}</div>
       </div>
 
@@ -19,7 +21,8 @@
     </div>
 
     <div v-if="showDots" class="dots">
-      <span v-for="(_, index) in myImages" ref="dot" class="dot" :key="index"
+      <span v-for="(_, index) in myImages" class="dot" :key="index"
+            :class="{ 'active': slideIndex === index + 1 }"
             @click.prevent="currentSlide(index+ 1)"></span>
     </div>
 
@@ -31,7 +34,8 @@ export default {
   name: 'carousel',
   data() {
     return {
-      slideIndex: 1
+      slideIndex: 1,
+      intervalId: null
     }
   },
   props: {
@@ -61,40 +65,30 @@ export default {
     }
   },
   mounted() {
-    this.showSlides(this.slideIndex)
     if(this.timeSlide > 0){
-      setInterval(() => {
-        this.showSlides(this.slideIndex += 1)
+      this.intervalId = setInterval(() => {
+        this.nextSlide(1)
       }, this.timeSlide)
     }
   },
+  beforeDestroy() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId)
+    }
+  },
   methods: {
-    showSlides(x) {
-      let i;
-      let slides = this.$refs.slides;
-      if (x > slides.length) {
-        this.slideIndex = 1
-      }
-      if (x < 1) {
-        this.slideIndex = slides.length
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[this.slideIndex - 1].style.display = "block";
-      if (this.showDots) {
-        let dots = this.$refs.dot;
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        dots[this.slideIndex - 1].className += " active";
-      }
-    },
     nextSlide(n) {
-      this.showSlides(this.slideIndex += n);
+      let newIndex = this.slideIndex + n;
+      if (newIndex > this.myImages.length) {
+        newIndex = 1;
+      }
+      if (newIndex < 1) {
+        newIndex = this.myImages.length;
+      }
+      this.slideIndex = newIndex;
     },
     currentSlide(n) {
-      this.showSlides(this.slideIndex = n);
+      this.slideIndex = n;
     }
   }
 }
@@ -109,10 +103,6 @@ export default {
   width: 100%;
   position: relative;
   margin: auto;
-}
-
-.slides {
-  display: none;
 }
 
 .slides img {

@@ -54,13 +54,14 @@ _This parameter sets the Carrousel's automatic rotation, determined by the time 
 ###### animation: 
 _This parameter will receive the value of a slide transition effect. At the moment only the FADE effect is available (we are accepting new effects as a contribution). By default, it is given a null value, so it has no effect on your transition from one slide to another._
 
-###### my-images: 
-_This parameter receives an array of objects containing the image and text keys. It is important that the keys contain these names so that the component can recognize and render the images in the browser. Below is an example of the structure:_
+###### my-images:
+_This parameter receives an array of objects. Each object should contain `image` (URL of the image), `text` (description text of the image), and an optional `link` key (URL for the hyperlink). If the `link` property is provided, the image will become a clickable hyperlink. It is important that the keys contain these names so that the component can recognize and render the images in the browser. Below is an example of the structure:_
 
 ```
 {
   image: 'url',
-  text: 'description text of image'
+  text: 'description text of image',
+  link: 'https://example.com'
 }
 ```
 
@@ -77,6 +78,29 @@ _This parameter receives an array of objects containing the image and text keys.
 
 <!-- Show only the images slide -->
 <vue-easy-carousel :my-images="array" />
+
+<!-- Using images with hyperlinks -->
+<vue-easy-carousel :my-images="arrayWithLinks" />
+```
+
+_For the hyperlink example, the `arrayWithLinks` would be structured like this:_
+```javascript
+data() {
+  return {
+    arrayWithLinks: [
+      {
+        image: 'https://example.com/image1.jpg',
+        text: 'Link to Example 1',
+        link: 'https://example.com/page1'
+      },
+      {
+        image: 'https://example.com/image2.jpg',
+        text: 'Link to Example 2',
+        link: 'https://example.com/page2'
+      }
+    ]
+  }
+}
 ```
 
 ## Next steps
