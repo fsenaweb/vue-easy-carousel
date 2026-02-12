@@ -61,11 +61,12 @@ _This parameter will receive the value of a slide transition effect. At the mome
 :::
 
 ::: tip my-images
-_This parameter receives an array of objects containing the image and text keys. It is important that the keys contain these names so that the component can recognize and render the images in the browser. Below is an example of the structure:_
+_This parameter receives an array of objects. Each object should contain `image` (URL of the image), `text` (description text of the image), and an optional `link` key (URL for the hyperlink). If the `link` property is provided, the image will become a clickable hyperlink. It is important that the keys contain these names so that o componente pode reconhecer e renderizar as imagens no navegador. Below is an example of the structure:_
 ```
 {
   image: 'url',
-  text: 'description text of image'
+  text: 'description text of image',
+  link: 'https://example.com'
 }
 ```
 :::
