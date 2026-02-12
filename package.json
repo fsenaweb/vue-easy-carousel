@@ -6,8 +6,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "dev": "vue serve src/Carousel.vue",
-    "build": "npx bili --name index --plugin vue --vue.css false",
-    "build:develop": "npx bili --bundle-node-modules"
+    "build": "npx bili"
   },
   "files": [
     "dist/*"
@@ -30,7 +29,7 @@
   "homepage": "https://fsenaweb.me",
   "license": "MIT",
   "devDependencies": {
-    "rollup-plugin-vue": "^6.0.0",
+    "rollup-plugin-vue": "^5.1.9",
     "vue-template-compiler": "^2.6.11"
   }
 }
